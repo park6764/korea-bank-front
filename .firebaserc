@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "korea-bank": {
+      "hosting": {
+        "korea-bank-front": [
+          "korea-bank"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "korea-bank"
+  }
+}

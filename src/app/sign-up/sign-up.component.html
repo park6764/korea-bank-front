@@ -1,0 +1,13 @@
+<form #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm)">
+    <div>
+        <label for="id">ID</label>
+        <input id="id" name="id" required [(ngModel)]="email" type="email" #emailInput="ngModel">
+        <span class="red" *ngIf="emailInput.invalid">정확한 E-mail을 입력해 주세요</span>
+    </div>
+    <div>
+        <label for="pw">PW</label>
+        <input id="pw" name="pw" required [(ngModel)]="pw" type="password" minlength="6" #pwInput="ngModel">
+        <span class="red" *ngIf="pwInput.invalid">6자 이상의 비밀번호를 입력하세요</span>
+    </div>
+    <button type="submit" [disabled]="signUpForm.invalid && signUpForm.touched">로그인</button>
+</form>

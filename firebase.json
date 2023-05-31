@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "korea-bank-front",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
