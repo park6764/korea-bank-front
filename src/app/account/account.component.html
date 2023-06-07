@@ -1,1 +1,12 @@
-<div *ngFor="let account of accounts | async"> {{ account | json }} </div>
+<ul>
+    <li *ngFor="let account of accounts | async">
+        ID: {{ account.id }} | 잔액: {{ account.money }}
+        <p> <button (click)="deleteAccount(account.id)">계좌 삭제</button> </p>
+        <p> <button (click)="addMoney(account)">입금</button> </p>
+        <p> <button (click)="deposit(account)" [disabled]="account.money === 0">출금</button> </p>
+        <p> <button (click)="send(account)" [disabled]="account.money === 0">송금</button> </p>
+        <p> <button [routerLink]="'account/edit-pw?accountId=' + account.id">계좌 비밀번호 변경</button> </p>
+        <p> <button [routerLink]="'account/transaction-history?accountId=' + account.id">거래내역</button> </p>
+    </li>
+    <button [routerLink]="'/account/new'">계좌 추가</button>
+</ul>

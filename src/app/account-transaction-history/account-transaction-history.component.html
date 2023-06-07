@@ -1,0 +1,14 @@
+<table border="1">
+    <tr>
+        <th>ID</th> <!-- th_id -->
+        <th>보낸/받은 계좌 ID</th>
+        <th>일시</th>
+        <th>금액</th>
+    </tr>
+    <tr *ngFor="let history of histories | async">
+        <td> {{ history.id }} </td>
+        <td> {{ history.fromAccountId ? history.fromAccountId : history.toAccountId }} </td>
+        <td> {{ history.commitTime }} </td>
+        <td [style.color]="history.fromAccountId === accountId ? 'red' : 'blue'"> {{ history.money }} </td>
+    </tr>
+</table>

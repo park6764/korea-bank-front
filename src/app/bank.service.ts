@@ -4,7 +4,7 @@ import { Observable, catchError, map, pipe } from 'rxjs';
 
 export interface AccountRecord {
   uid: string,
-  passward: number,
+  password: number,
   money: number
 }
 
@@ -15,23 +15,23 @@ export interface Account {
   money: number
 }
 
-interface TransactionHistoryRecord {
-  fromAccountId: number,
-  toAccountId: number,
+export interface TransactionHistoryRecord {
+  fromAccountId?: number,
+  toAccountId?: number,
   commitTime: number,
   money: number,
   accountPassword: number
 }
 
-interface TransactionHistory {
+export interface TransactionHistory {
   id: number,
-  fromAccountId: number,
-  toAccountId: number,
+  fromAccountId?: number,
+  toAccountId?: number,
   commitTime: number,
   money: number
 }
 
-interface ISARecord {
+export interface ISARecord {
   uid: string,
   password: number,
   money: number,
@@ -43,7 +43,7 @@ interface ISARecord {
   fromAccountId: number
 }
 
-interface ISA {
+export interface ISA {
   id: number,
   uid: string,
   password: number,

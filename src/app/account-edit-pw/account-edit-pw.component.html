@@ -1,0 +1,8 @@
+<form #editPwForm="ngForm" (ngSubmit)="editPw(editPwForm)">
+    <div>
+        <label for="pw">새로운 계좌 비밀번호</label>
+        <input id="pw" name="pw" required [(ngModel)]="pw" type="password" minlength="4" maxlength="4" #pwInput="ngModel">
+        <span class="red" *ngIf="pwInput.invalid">4자리의 숫자를 입력하세요</span>
+    </div>
+    <button type="submit" [disabled]="editPwForm.invalid && editPwForm.touched">계좌 비밀번호 변경</button>
+</form>

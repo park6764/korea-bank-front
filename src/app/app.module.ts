@@ -14,13 +14,21 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AccountComponent } from './account/account.component';
+import { AccountNewComponent } from './account-new/account-new.component';
+import { AccountEditPwComponent } from './account-edit-pw/account-edit-pw.component';
+import { AccountTransactionHistoryComponent } from './account-transaction-history/account-transaction-history.component';
+import { IsaComponent } from './isa/isa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    AccountComponent
+    AccountComponent,
+    AccountNewComponent,
+    AccountEditPwComponent,
+    AccountTransactionHistoryComponent,
+    IsaComponent
   ],
   imports: [
     BrowserModule,

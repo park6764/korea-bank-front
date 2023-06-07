@@ -1,0 +1,27 @@
+<section>
+    <p>
+        <label for="inputMoney">월 입금액</label>
+        <input id="inputMoney" name="inputMoney" type="number" [(ngModel)]="inputMoney" required>
+    </p>
+    <p>
+        <label for="monthes">개월 수</label>
+        <input id="monthes" name="monthes" type="number" [(ngModel)]="monthes" required>
+    </p>
+    <p>
+        <label for="iRate">금리 (%)</label>
+        <input id="iRate" name="iRate" type="number" [(ngModel)]="iRate" required>
+    </p>
+
+    <table border="">
+        <tr>
+            <th>월 납입액 합계(원)</th>
+            <th>이자</th>
+            <th>만기지급액(원)</th>
+        </tr>
+        <tr>
+            <td>{{ inputMoney*monthes }}</td>
+            <td> {{ interest() | number: '1.3-3' }} </td>
+            <td> {{ inputMoney * monthes + interest() | number: '1.3-3' }} </td>
+        </tr>
+    </table>
+</section>

@@ -4,6 +4,10 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AccountComponent } from './account/account.component';
 import { Auth } from '@angular/fire/auth';
+import { AccountNewComponent } from './account-new/account-new.component';
+import { AccountEditPwComponent } from './account-edit-pw/account-edit-pw.component';
+import { AccountTransactionHistoryComponent } from './account-transaction-history/account-transaction-history.component';
+import { IsaComponent } from './isa/isa.component';
 
 const redirectUnauthorized: CanActivateFn = (route, state) => {
   let auth = inject(Auth);
@@ -19,7 +23,12 @@ const redirectUnauthorized: CanActivateFn = (route, state) => {
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'account', component: AccountComponent, canActivate: [redirectUnauthorized] }
+  { path: 'account', component: AccountComponent, canActivate: [redirectUnauthorized], children: [
+    { path: 'new', component: AccountNewComponent }, // "/account/new" -> children:
+    { path: 'edit-pw', component: AccountEditPwComponent }, // "/account/edit-pw"
+    { path: 'transaction-history', component: AccountTransactionHistoryComponent }
+  ] },
+  { path: 'isa', component: IsaComponent }
 ];
 
 @NgModule({

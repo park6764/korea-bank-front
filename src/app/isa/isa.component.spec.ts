@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { IsaComponent } from './isa.component';
+
+describe('IsaComponent', () => {
+  let component: IsaComponent;
+  let fixture: ComponentFixture<IsaComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ IsaComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(IsaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

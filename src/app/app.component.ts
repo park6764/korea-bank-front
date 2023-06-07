@@ -10,6 +10,7 @@ export class AppComponent {
   links = [
     { name: '로그인', link: '/login' },
     { name: '회원가입', link: '/sign-up' },
+    { name: '적금 계산기', link: '/isa' }
   ];
 
   constructor(private auth: Auth) {}
