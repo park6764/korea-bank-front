@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Auth, signOut } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,12 @@ export class AppComponent {
     { name: '적금 계산기', link: '/isa' }
   ];
 
-  constructor(private auth: Auth) {}
+  constructor(private auth: Auth, private router: Router) {}
 
   logout() {
-    signOut(this.auth);
+    signOut(this.auth).then(() => {
+      alert('로그아웃 되었습니다.');
+      this.router.navigateByUrl('/login');
+    });
   }
 }

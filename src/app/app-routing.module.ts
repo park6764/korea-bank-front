@@ -28,7 +28,8 @@ const routes: Routes = [
     { path: 'edit-pw', component: AccountEditPwComponent }, // "/account/edit-pw"
     { path: 'transaction-history', component: AccountTransactionHistoryComponent }
   ] },
-  { path: 'isa', component: IsaComponent }
+  { path: 'isa', component: IsaComponent },
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({
