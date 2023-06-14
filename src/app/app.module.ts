@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { AccountNewComponent } from './account-new/account-new.component';
 import { AccountEditPwComponent } from './account-edit-pw/account-edit-pw.component';
 import { AccountTransactionHistoryComponent } from './account-transaction-history/account-transaction-history.component';
 import { IsaComponent } from './isa/isa.component';
+import { CorsInterceptor } from './cors.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { IsaComponent } from './isa/isa.component';
     provideDatabase(() => getDatabase()),
     provideRemoteConfig(() => getRemoteConfig()),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CorsInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
