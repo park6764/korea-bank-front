@@ -23,7 +23,8 @@ const redirectUnauthorized: CanActivateFn = (route, state) => {
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'account', component: AccountComponent, canActivate: [redirectUnauthorized], children: [
+  { path: 'account', canActivate: [redirectUnauthorized], children: [
+    { path: '', component: AccountComponent },
     { path: 'new', component: AccountNewComponent }, // "/account/new" -> children:
     { path: 'edit-pw', component: AccountEditPwComponent }, // "/account/edit-pw"
     { path: 'transaction-history', component: AccountTransactionHistoryComponent }
